@@ -1,19 +1,44 @@
-var userGuess = function() {
+var questions = [
+    {
+        question: "Len Dawson was the Chiefs' QB who won the Super Bowl.",
 
-    var answer = $('choice');
-    var val= "";
-    for (var i = 0, length = answer.length; i < length; i++) {
-        if (answer[i].checked) {
-           val = answer[i].value; 
-           break;
-         }
+        answer: true
+    },
+    {
+        question: "Patrick Mahomes was the first MVP for the Chiefs",
+
+        answer: true
+    },
+    {
+        question: "Patrick Mahomes won the MVP last year as a rookie",
+
+        answer: false
+    },
+    {
+        question: "Clark Hunt is the original owner of the Chiefs",
+
+        answer: false
+    },
+    {
+        question: "The Chiefs Franchise started in Houston Texas",
+
+        answer: true
     }
-    
-    if (val == "" ) {
-      alert('please select choice answer');
-    } else if ( val == "Scripting" ) {
-      alert('Answer is correct !');
-    } else {
-      alert('Answer is wrong');
+];
+
+var questionIndex = 0;
+
+funcion renderQuestion(){
+    if (questionIndex <= (questions.length - 1)) {
+        $("#question").innerHTML = questions[questionIndex].q;
     }
-  };
+    else {
+        $("#question").innerHTML = "Game Over";
+    }
+}
+
+renderQuestion();
+
+if (questionIndex === questions.length) {
+    return;
+  }
